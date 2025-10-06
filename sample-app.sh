@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Wegens fout in build -> in Jenkins: oude builds automatisch verwijderen
-# rm -rf tempdir
+rm -rf tempdir
 mkdir tempdir
 mkdir tempdir/templates
 mkdir tempdir/static
