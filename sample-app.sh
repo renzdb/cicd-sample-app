@@ -1,8 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
+# Verwijder oude container indien aanwezig
+docker rm -f samplerunning 2>/dev/null || true
+
 # Wegens fout in build
 rm -rf tempdir
+
 mkdir tempdir
 mkdir tempdir/templates
 mkdir tempdir/static
