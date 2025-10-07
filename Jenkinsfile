@@ -15,6 +15,7 @@ pipeline {
                 sh '''
                     APP_IP=172.17.0.3
                     JENKINS_IP=172.17.0.2
+                    sleep 5
                     curl http://$APP_IP:5050/ | grep "You are calling me from $JENKINS_IP"
                 '''
             }
