@@ -4,12 +4,12 @@ set -euo pipefail
 # Verwijder oude container indien aanwezig
 docker rm -f samplerunning 2>/dev/null || true
 
-# Wegens fout in build
-rm -rf tempdir
+# Wegens fout in build -> fix optie -p
+# rm -rf tempdir
 
-mkdir tempdir
-mkdir tempdir/templates
-mkdir tempdir/static
+mkdir -p tempdir
+mkdir -p tempdir/templates
+mkdir -p tempdir/static
 
 cp sample_app.py tempdir/.
 cp -r templates/* tempdir/templates/.
