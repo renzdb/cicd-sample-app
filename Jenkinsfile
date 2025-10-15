@@ -6,9 +6,11 @@ pipeline {
 
     stages {
         stage('Preparation') {
-            catchError(buildResult: 'SUCCESS') {
-                sh 'docker stop samplerunning || true'
-                sh 'docker rm samplerunning || true'
+            steps {
+                catchError(buildResult: 'SUCCESS') {
+                    sh 'docker stop samplerunning || true'
+                    sh 'docker rm samplerunning || true'
+                }
             }
         }
         stage('Build Sample App') {
