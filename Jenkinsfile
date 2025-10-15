@@ -1,7 +1,16 @@
 pipeline {
     agent any
+    triggers {
+        pollSCM('H/5 * * * *')  // Controleert elke 5 seconden op nieuwe commits
+    }
 
     stages {
+        stage('Preparation') {
+            catchError(buildResult: 'SUCCESS') {
+                sh 'docker stop samplerunning'
+                sh 'docker rm samplerunning'
+            }
+        }
         stage('Build Sample App') {
             steps {
                 echo 'Building the sample app...'
